@@ -14,11 +14,7 @@ class SignUpViewController: UIViewController {
             titleView.addbottomCornerRadius(radius: 40)
         }
     }
-    @IBOutlet weak var mainView: UIView!{
-        didSet{
-            mainView.addTopCornerRadius(radius: 40)
-        }
-    }
+    @IBOutlet weak var mainView: UIView!
     
     
     override func viewDidLoad() {
