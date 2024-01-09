@@ -27,11 +27,11 @@
             <objects>
                 <viewController id="wrV-lh-lcO" customClass="SignUpViewController" customModule="YajhzTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RCv-28-8yu">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pexels-rajesh-tp-1624487 1" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-Hy-Lgj">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="788"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1136"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="06u-0o-PBX">
                                 <rect key="frame" x="123.66666666666669" y="69" width="146" height="77"/>
@@ -41,10 +41,10 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN6-Jw-RYf">
-                                <rect key="frame" x="0.0" y="176" width="393" height="642"/>
+                                <rect key="frame" x="0.0" y="176" width="393" height="990"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adR-L9-cW4">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="642"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="990"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AET-QO-QoF" userLabel="ContainerView">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="814"/>
@@ -539,6 +539,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U04-Vr-WXB"/>
+                    <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="titleView" destination="9Tc-KE-jbt" id="IxV-dm-oeq"/>
                     </connections>
