@@ -16,6 +16,8 @@ class CategoriesTableViewCell: UITableViewCell {
             categoryCollectionView.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell") 
         }
     }
+    
+    var categoriesArrData: [CategoriesDatum]?
       
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,4 +27,9 @@ class CategoriesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    
+    func cellSetup(data: [CategoriesDatum]?){
+        categoriesArrData = data
+        categoryCollectionView.reloadData()
+    }
 }

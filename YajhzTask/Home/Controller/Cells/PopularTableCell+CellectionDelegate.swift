@@ -11,12 +11,15 @@ import UIKit
 extension PopularTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        popularArrData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCollectionViewCell", for: indexPath) as! PopularCollectionViewCell
-          
+        cell.cellSetup(data: popularArrData?[indexPath.row])
+        cell.favPressed = { [weak self] in
+            self?.favPressed?("\(self?.popularArrData?[indexPath.row].id ?? 0)")
+        }
         return cell
     }
     
@@ -29,7 +32,7 @@ extension PopularTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
 extension PopularTableViewCell: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 190, height: (collectionView.frame.height) - 10)
+        return CGSize(width: 188, height: (collectionView.frame.height) - 10)
     }
      
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -37,6 +40,6 @@ extension PopularTableViewCell: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5)
     }
 }

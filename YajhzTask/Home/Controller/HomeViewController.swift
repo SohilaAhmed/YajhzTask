@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userAddress: UILabel!
     @IBOutlet weak var searchTF: UITextField!
     
+    var popularData: PopularModel?
+    var trendingData: TrendingModel?
+    var categoriesData: CategoriesModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,11 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getClientProfile()
+        getPopular()
+        getTrending()
+        getCategories() 
     }
-    
  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -46,4 +52,11 @@ class HomeViewController: UIViewController {
         }
     }
 
+}
+
+extension HomeViewController{
+    func setUpClientData(data: DataClass?){
+        userName.text = "Hello " + "\(data?.name ?? "")"
+        userAddress.text = data?.addresses?.first?.address ?? "Riyadh ( 15 -Jasmine neighbo..."
+    }
 }

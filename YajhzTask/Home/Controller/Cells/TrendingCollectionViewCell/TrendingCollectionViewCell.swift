@@ -14,7 +14,9 @@ class TrendingCollectionViewCell: UICollectionViewCell {
      
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    func cellSetup(data: TrendingDatum?){
+        self.cellImg.sd_setImage(with: URL(string: (data?.image ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""), placeholderImage: UIImage(named: "logo"))
+    }
 }

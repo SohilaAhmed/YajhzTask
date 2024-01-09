@@ -17,12 +17,19 @@ class TrendingTableViewCell: UITableViewCell {
         }
     }
     
+    var trendingArrData: [TrendingDatum]?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated) 
+    }
+    
+    func cellSetup(data: [TrendingDatum]?){
+        trendingArrData = data
+        trendingCollectionView.reloadData()
     }
 
 }

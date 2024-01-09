@@ -17,6 +17,8 @@ class PopularTableViewCell: UITableViewCell {
         }
     }
     
+    var popularArrData: [PopularDatum]?
+    var favPressed: ((_ productId: String)->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,4 +28,8 @@ class PopularTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated) 
     }
 
+    func cellSetup(data: [PopularDatum]?){
+        popularArrData = data
+        popularCollectionView.reloadData()
+    }
 }

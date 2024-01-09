@@ -30,12 +30,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.section{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell", for: indexPath) as! CategoriesTableViewCell
+            cell.cellSetup(data: categoriesData?.data?.data)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularTableViewCell", for: indexPath) as! PopularTableViewCell
+            cell.cellSetup(data: popularData?.data)
+            cell.favPressed = { [weak self] productId in
+                self?.favorite(productId: productId)
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell", for: indexPath) as! TrendingTableViewCell
+            cell.cellSetup(data: trendingData?.data)
             return cell
         default:
             return UITableViewCell()

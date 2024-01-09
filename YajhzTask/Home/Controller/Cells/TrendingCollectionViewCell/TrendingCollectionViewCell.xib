@@ -20,14 +20,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foG-P6-HDa">
                         <rect key="frame" x="5" y="5" width="132" height="122"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramen" translatesAutoresizingMaskIntoConstraints="NO" id="dzd-T8-fYf">
-                                <rect key="frame" x="5" y="5" width="122" height="112"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramen" translatesAutoresizingMaskIntoConstraints="NO" id="dzd-T8-fYf">
+                                <rect key="frame" x="15" y="15" width="102" height="92"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dzd-T8-fYf" firstAttribute="top" secondItem="foG-P6-HDa" secondAttribute="top" constant="5" id="06f-DX-rVJ"/>
-                            <constraint firstItem="dzd-T8-fYf" firstAttribute="leading" secondItem="foG-P6-HDa" secondAttribute="leading" constant="5" id="Evy-hv-Rka"/>
+                            <constraint firstItem="dzd-T8-fYf" firstAttribute="top" secondItem="foG-P6-HDa" secondAttribute="top" constant="15" id="06f-DX-rVJ"/>
+                            <constraint firstItem="dzd-T8-fYf" firstAttribute="leading" secondItem="foG-P6-HDa" secondAttribute="leading" constant="15" id="Evy-hv-Rka"/>
                             <constraint firstItem="dzd-T8-fYf" firstAttribute="centerX" secondItem="foG-P6-HDa" secondAttribute="centerX" id="X69-Hn-EhD"/>
                             <constraint firstItem="dzd-T8-fYf" firstAttribute="centerY" secondItem="foG-P6-HDa" secondAttribute="centerY" id="lbr-er-7Ay"/>
                         </constraints>

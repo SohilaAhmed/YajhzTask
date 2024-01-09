@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
 
@@ -14,11 +15,11 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryName: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        super.awakeFromNib() 
     }
 
-    func cellSetUp(){
-        
+    func cellSetUp(data: CategoriesDatum?){
+        self.categoryImg.sd_setImage(with: URL(string: (data?.image ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""), placeholderImage: UIImage(named: "logo"))
+        self.categoryName.text = data?.name ?? ""
     }
 }
