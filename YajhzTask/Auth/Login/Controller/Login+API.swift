@@ -18,8 +18,8 @@ extension LoginViewController{
                     
                     let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
-                    self?.view.window?.rootViewController = vc
-//                    self?.navigationController?.pushViewController(vc, animated: true)
+//                    self?.view.window?.rootViewController = vc
+                    self?.navigationController?.pushViewController(vc, animated: true)
                     
                     self?.makeAlert(title: data.message ?? "", SubTitle: "", Image: UIImage())
                 }else{

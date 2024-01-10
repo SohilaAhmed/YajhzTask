@@ -27,6 +27,14 @@ class SignUpViewController: UIViewController {
         phoneTF.delegate = self
     }
      
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @IBAction func signupPressed(_ sender: Any) {
         validation()
     }
@@ -34,7 +42,8 @@ class SignUpViewController: UIViewController {
     @IBAction func goToLoginPressed(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-        view.window?.rootViewController = vc
+        let navViewController = UINavigationController(rootViewController: vc)
+        view.window?.rootViewController = navViewController
     }
     
     func validation(){

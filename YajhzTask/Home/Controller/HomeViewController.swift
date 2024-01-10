@@ -23,13 +23,17 @@ class HomeViewController: UIViewController {
     var trendingData: TrendingModel?
     var categoriesData: CategoriesModel?
     
+    var cartBtn = UIButton()
+    var groupBtn = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavBar()
         getClientProfile()
         getPopular()
         getTrending()
@@ -58,5 +62,48 @@ extension HomeViewController{
     func setUpClientData(data: DataClass?){
         userName.text = "Hello " + "\(data?.name ?? "")"
         userAddress.text = data?.addresses?.first?.address ?? "Riyadh ( 15 -Jasmine neighbo..."
+    }
+    
+    func setupNavBar(){
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .white
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.fontColor]
+            
+            let backItemAppearance = UIBarButtonItemAppearance()
+            backItemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear] // fix text color
+            appearance.backButtonAppearance = backItemAppearance
+            
+            let image = UIImage(named: "Vector")!.withRenderingMode(.alwaysOriginal)
+            appearance.setBackIndicatorImage(image, transitionMaskImage: image)
+            UINavigationBar.appearance().tintColor = UIColor.black
+            
+            if let font = UIFont(name: "TT Commons Medium", size: 24) {
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.fontColor,
+                                                   NSAttributedString.Key.font: font]
+            }
+            
+            navigationItem.titleView?.tintColor = UIColor.fontColor
+            
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+        self.navigationItem.title = NSLocalizedString("Home", comment: "")
+        setupNavBtns()
+        
+    }
+    
+    func setupNavBtns(){
+        cartBtn.setTitle("", for: .normal)
+        cartBtn.setImage(UIImage(named: "Group"), for: .normal)
+        groupBtn.setTitle("", for: .normal)
+        groupBtn.setImage(UIImage(named: "Group 1"), for: .normal)
+        let cartNavBtn = UIBarButtonItem(customView: cartBtn)
+        let groupNavBtn = UIBarButtonItem(customView: groupBtn)
+        navigationItem.rightBarButtonItems = [groupNavBtn, cartNavBtn]
     }
 }

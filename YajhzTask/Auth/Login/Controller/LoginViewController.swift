@@ -23,6 +23,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
  
     @IBAction func loginPressed(_ sender: Any) {
         validation()
@@ -31,7 +39,8 @@ class LoginViewController: UIViewController {
     @IBAction func goTosignupPressed(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "SignUp", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController")
-        view.window?.rootViewController = vc
+        let navViewController = UINavigationController(rootViewController: vc)
+        view.window?.rootViewController = navViewController
     }
     
     func validation(){
