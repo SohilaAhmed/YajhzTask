@@ -25,7 +25,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="7qu-N1-ssL">
             <objects>
-                <viewController id="wrV-lh-lcO" customClass="SignUpViewController" customModule="YajhzTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="wrV-lh-lcO" customClass="SignUpViewController" customModule="YajhzTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RCv-28-8yu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,14 +40,14 @@
                                     <constraint firstAttribute="height" constant="77" id="i8j-rj-Zdd"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN6-Jw-RYf">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN6-Jw-RYf">
                                 <rect key="frame" x="0.0" y="176" width="393" height="990"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adR-L9-cW4">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="990"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AET-QO-QoF" userLabel="ContainerView">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="814"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AET-QO-QoF" userLabel="ContainerView">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="954"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tc-KE-jbt">
                                                         <rect key="frame" x="114" y="0.0" width="165" height="68"/>
@@ -441,6 +441,9 @@
                                                                 <real key="value" value="12"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="signupPressed:" destination="wrV-lh-lcO" eventType="touchUpInside" id="ae3-FM-Lgp"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsu-ta-5F7">
                                                         <rect key="frame" x="124.66666666666667" y="728" width="143.66666666666663" height="26"/>
@@ -452,6 +455,9 @@
                                                                 <state key="normal" title="Login">
                                                                     <color key="titleColor" red="0.72941176470000002" green="0.57647058819999997" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="goToLoginPressed:" destination="wrV-lh-lcO" eventType="touchUpInside" id="uUf-VO-kNm"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BD-n3-1Db">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="26"/>
@@ -480,7 +486,7 @@
                                                     <constraint firstItem="cHx-Vf-A4K" firstAttribute="leading" secondItem="AET-QO-QoF" secondAttribute="leading" constant="21" id="bdu-U0-jqe"/>
                                                     <constraint firstItem="xsu-ta-5F7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AET-QO-QoF" secondAttribute="leading" constant="10" id="bpr-Fj-2eR"/>
                                                     <constraint firstItem="9Tc-KE-jbt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AET-QO-QoF" secondAttribute="leading" constant="10" id="eKG-tE-zfy"/>
-                                                    <constraint firstAttribute="bottom" secondItem="xsu-ta-5F7" secondAttribute="bottom" constant="60" id="hg4-ny-40q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xsu-ta-5F7" secondAttribute="bottom" constant="200" id="hg4-ny-40q"/>
                                                     <constraint firstItem="vvE-8B-iob" firstAttribute="centerX" secondItem="AET-QO-QoF" secondAttribute="centerX" id="iOF-YR-VfT"/>
                                                     <constraint firstItem="vvE-8B-iob" firstAttribute="top" secondItem="cHx-Vf-A4K" secondAttribute="bottom" constant="50" id="jt8-P2-VaA"/>
                                                     <constraint firstAttribute="trailing" secondItem="cHx-Vf-A4K" secondAttribute="trailing" constant="21" id="l32-Pu-rg2"/>
@@ -541,6 +547,12 @@
                     <navigationItem key="navigationItem" id="U04-Vr-WXB"/>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
+                        <outlet property="confirmPassTF" destination="vJY-36-i61" id="gTh-je-MJy"/>
+                        <outlet property="emailTF" destination="vXG-c2-tkd" id="j6z-Fr-aCE"/>
+                        <outlet property="mainView" destination="HN6-Jw-RYf" id="EnG-Nu-rxZ"/>
+                        <outlet property="nameTf" destination="KnS-Gg-m6o" id="rSF-ih-YO5"/>
+                        <outlet property="passTF" destination="DJD-8x-0DI" id="D2C-EJ-kKi"/>
+                        <outlet property="phoneTF" destination="6Yt-AO-TbE" id="iGZ-2x-1MD"/>
                         <outlet property="titleView" destination="9Tc-KE-jbt" id="IxV-dm-oeq"/>
                     </connections>
                 </viewController>

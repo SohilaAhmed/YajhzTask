@@ -60,4 +60,36 @@ class NetworkServices {
                                     headers: EndPoints.Instance.getHeader(withContent: true),
                                     completion: callBack)
     }
+    
+    func login(vc: UIViewController, email: String, password: String, callBack: @escaping (Result<LoginModel, Error>) -> Void) {
+        let parameters = ["email": email,
+                          "password": password,
+                          "device_token": "12233454566787877"
+        ]
+ 
+        print(parameters)
+        NetworkRequest.postFormData(vc: vc,
+                                    url: EndPoints.Instance.login(),
+                                    params: parameters,
+                                    headers: nil,
+                                    completion: callBack)
+    }
+    
+    func register(vc: UIViewController, name: String,
+                  email: String, password: String,
+                  phone: String, callBack: @escaping (Result<LoginModel, Error>) -> Void) {
+        let parameters = ["name": name,
+                          "email": email,
+                          "password": password,
+                          "phone": phone,
+                          "device_token": "12233454566787877"
+        ]
+ 
+        print(parameters)
+        NetworkRequest.postFormData(vc: vc,
+                                    url: EndPoints.Instance.register(),
+                                    params: parameters,
+                                    headers: nil,
+                                    completion: callBack)
+    }
 }
